@@ -107,6 +107,8 @@ struct ContentView: View {
                     withAnimation {
                         locationManager.checkLocationAuthorization()
                         positionView.center = locationManager.lastKnownLocation ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)
+                        positionView.span.latitudeDelta = 0.01
+                        positionView.span.longitudeDelta = 0.01
                     }
                 }
                 
@@ -133,7 +135,7 @@ struct ContentView: View {
                         }
                     }
                 } label: {
-                    Image(systemName: "car.front.waves.up")
+                    Image(systemName: "car.fill")
                 }.disabled((locationAdded) ? false : true)
             }
             .navigationTitle("Parking Spot")
