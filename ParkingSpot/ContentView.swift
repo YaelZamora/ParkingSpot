@@ -62,8 +62,14 @@ struct Location: Identifiable {
 struct ContentView: View {
     @StateObject private var locationManager = LocationManager()
     @State var positionView = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 0, longitude: 0),
-        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        center: CLLocationCoordinate2D(
+            latitude: 0,
+            longitude: 0
+        ),
+        span: MKCoordinateSpan(
+            latitudeDelta: 0.01,
+            longitudeDelta: 0.01
+        )
     )
     
     @State var location = [Location]()
@@ -90,7 +96,15 @@ struct ContentView: View {
             }
             
             Button("Place Car Location") {
-                location.append(Location(name: "Car", location: CLLocationCoordinate2D(latitude: positionView.center.latitude, longitude: positionView.center.longitude)))
+                location.append(
+                    Location(
+                        name: "Car",
+                        location: CLLocationCoordinate2D(
+                            latitude: positionView.center.latitude,
+                            longitude: positionView.center.longitude
+                        )
+                    )
+                )
             }
             
         }
@@ -99,8 +113,13 @@ struct ContentView: View {
             locationManager.checkLocationAuthorization()
             if let coordinate = locationManager.lastKnownLocation {
                 let position = MKCoordinateRegion(
-                    center: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude),
-                    span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+                    center: CLLocationCoordinate2D(
+                        latitude: coordinate.latitude,
+                        longitude: coordinate.longitude),
+                    span: MKCoordinateSpan(
+                        latitudeDelta: 0.01,
+                        longitudeDelta: 0.01
+                    )
                 )
                 
                 positionView = position
