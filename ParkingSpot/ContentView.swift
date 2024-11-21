@@ -128,6 +128,8 @@ struct ContentView: View {
                         withAnimation {
                             positionView.center.latitude = latitud
                             positionView.center.longitude = longitud
+                            positionView.span.latitudeDelta = 0.01
+                            positionView.span.longitudeDelta = 0.01
                         }
                     }
                 } label: {
