@@ -55,11 +55,9 @@ final class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObje
 
 struct ContentView: View {
     @StateObject private var locationManager = LocationManager()
-    @State var positionView = MapCameraPosition.region(
-        MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 0, longitude: 0),
-            span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
-        )
+    @State var positionView = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 0, longitude: 0),
+        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
     )
     
     var body: some View {
@@ -70,17 +68,7 @@ struct ContentView: View {
                 Text("Longitude: \(coordinate.longitude)")
                 
                 Map(
-                    initialPosition: MapCameraPosition.region(
-                        MKCoordinateRegion(
-                            center: CLLocationCoordinate2DMake(
-                                coordinate.latitude, coordinate.longitude
-                            ),
-                            span: MKCoordinateSpan(
-                                latitudeDelta: 1,
-                                longitudeDelta: 1
-                            )
-                        )
-                    )
+                    coordinateRegion: $positionView
                 )
             } else {
                 Text("Unknown Location")
@@ -89,6 +77,8 @@ struct ContentView: View {
             
             Button("Get location") {
                 locationManager.checkLocationAuthorization()
+                positionView.center = locationManager.lastKnownLocation ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)
+                
             }
             
         }
@@ -96,11 +86,9 @@ struct ContentView: View {
         .onAppear {
             locationManager.checkLocationAuthorization()
             if let coordinate = locationManager.lastKnownLocation {
-                let position = MapCameraPosition.region(
-                    MKCoordinateRegion(
-                        center: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude),
-                        span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
-                    )
+                let position = MKCoordinateRegion(
+                    center: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude),
+                    span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
                 )
                 
                 positionView = position
