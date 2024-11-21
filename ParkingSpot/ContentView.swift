@@ -69,7 +69,19 @@ struct ContentView: View {
                 
                 Text("Longitude: \(coordinate.longitude)")
                 
-                Map(initialPosition: MapCameraPosition.region(MKCoordinateRegion(center: CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))))
+                Map(
+                    initialPosition: MapCameraPosition.region(
+                        MKCoordinateRegion(
+                            center: CLLocationCoordinate2DMake(
+                                coordinate.latitude, coordinate.longitude
+                            ),
+                            span: MKCoordinateSpan(
+                                latitudeDelta: 1,
+                                longitudeDelta: 1
+                            )
+                        )
+                    )
+                )
             } else {
                 Text("Unknown Location")
             }
