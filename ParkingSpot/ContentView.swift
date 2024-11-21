@@ -53,6 +53,12 @@ final class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObje
     }
 }
 
+struct Location: Identifiable {
+    let id = UUID()
+    let name: String
+    let location: CLLocationCoordinate2D
+}
+
 struct ContentView: View {
     @StateObject private var locationManager = LocationManager()
     @State var positionView = MKCoordinateRegion(
@@ -60,16 +66,19 @@ struct ContentView: View {
         span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
     )
     
+    @State var location = [Location]()
+    
     var body: some View {
         VStack {
             if let coordinate = locationManager.lastKnownLocation {
-                Text("Latitude: \(coordinate.latitude)")
-                
-                Text("Longitude: \(coordinate.longitude)")
-                
                 Map(
-                    coordinateRegion: $positionView
-                )
+                    coordinateRegion: $positionView,
+                    annotationItems: location
+                ) { location in
+                    MapAnnotation(coordinate: location.location) {
+                        Image(systemName: "car.fill")
+                    }
+                }
             } else {
                 Text("Unknown Location")
             }
@@ -78,7 +87,10 @@ struct ContentView: View {
             Button("Get location") {
                 locationManager.checkLocationAuthorization()
                 positionView.center = locationManager.lastKnownLocation ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)
-                
+            }
+            
+            Button("Place Car Location") {
+                location.append(Location(name: "Car", location: CLLocationCoordinate2D(latitude: positionView.center.latitude, longitude: positionView.center.longitude)))
             }
             
         }
