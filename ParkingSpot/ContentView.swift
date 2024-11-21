@@ -104,8 +104,10 @@ struct ContentView: View {
                 
                 
                 Button("Get location") {
-                    locationManager.checkLocationAuthorization()
-                    positionView.center = locationManager.lastKnownLocation ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)
+                    withAnimation {
+                        locationManager.checkLocationAuthorization()
+                        positionView.center = locationManager.lastKnownLocation ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)
+                    }
                 }
                 
                 Button("Place Car Location") {
@@ -123,13 +125,17 @@ struct ContentView: View {
             }.toolbar {
                 Button {
                     if locationAdded {
-                        positionView.center.latitude = latitud
-                        positionView.center.longitude = longitud
+                        withAnimation {
+                            positionView.center.latitude = latitud
+                            positionView.center.longitude = longitud
+                        }
                     }
                 } label: {
                     Image(systemName: "car.front.waves.up")
                 }.disabled((locationAdded) ? false : true)
             }
+            .navigationTitle("Parkin Spot")
+            .navigationBarTitleDisplayMode(.inline)
         }
         .padding()
         .onAppear {
