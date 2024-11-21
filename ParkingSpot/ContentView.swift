@@ -72,7 +72,15 @@ struct ContentView: View {
         )
     )
     
-    @State var location = [Location]()
+    @State var location = [
+        Location(
+            name: "Car",
+            location: CLLocationCoordinate2D(
+                latitude: 0,
+                longitude: 0
+            )
+        )
+    ]
     
     var body: some View {
         VStack {
@@ -96,13 +104,11 @@ struct ContentView: View {
             }
             
             Button("Place Car Location") {
-                location.append(
-                    Location(
-                        name: "Car",
-                        location: CLLocationCoordinate2D(
-                            latitude: positionView.center.latitude,
-                            longitude: positionView.center.longitude
-                        )
+                location[0] = Location(
+                    name: "Car",
+                    location: CLLocationCoordinate2D(
+                        latitude: positionView.center.latitude,
+                        longitude: positionView.center.longitude
                     )
                 )
             }
@@ -115,7 +121,8 @@ struct ContentView: View {
                 let position = MKCoordinateRegion(
                     center: CLLocationCoordinate2D(
                         latitude: coordinate.latitude,
-                        longitude: coordinate.longitude),
+                        longitude: coordinate.longitude
+                    ),
                     span: MKCoordinateSpan(
                         latitudeDelta: 0.01,
                         longitudeDelta: 0.01
