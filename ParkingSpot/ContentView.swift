@@ -82,37 +82,54 @@ struct ContentView: View {
         )
     ]
     
+    @State var locationAdded = false
+    @State var latitud: CLLocationDegrees = 0
+    @State var longitud: CLLocationDegrees = 0
+    
     var body: some View {
-        VStack {
-            if let coordinate = locationManager.lastKnownLocation {
-                Map(
-                    coordinateRegion: $positionView,
-                    annotationItems: location
-                ) { location in
-                    MapAnnotation(coordinate: location.location) {
-                        Image(systemName: "car.fill")
+        NavigationView {
+            VStack {
+                if let coordinate = locationManager.lastKnownLocation {
+                    Map(
+                        coordinateRegion: $positionView,
+                        annotationItems: location
+                    ) { location in
+                        MapAnnotation(coordinate: location.location) {
+                            Image(systemName: "car.fill")
+                        }
                     }
+                } else {
+                    Text("Unknown Location")
                 }
-            } else {
-                Text("Unknown Location")
-            }
-            
-            
-            Button("Get location") {
-                locationManager.checkLocationAuthorization()
-                positionView.center = locationManager.lastKnownLocation ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)
-            }
-            
-            Button("Place Car Location") {
-                location[0] = Location(
-                    name: "Car",
-                    location: CLLocationCoordinate2D(
-                        latitude: positionView.center.latitude,
-                        longitude: positionView.center.longitude
+                
+                
+                Button("Get location") {
+                    locationManager.checkLocationAuthorization()
+                    positionView.center = locationManager.lastKnownLocation ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)
+                }
+                
+                Button("Place Car Location") {
+                    location[0] = Location(
+                        name: "Car",
+                        location: CLLocationCoordinate2D(
+                            latitude: positionView.center.latitude,
+                            longitude: positionView.center.longitude
+                        )
                     )
-                )
+                    latitud = positionView.center.latitude
+                    longitud = positionView.center.longitude
+                    locationAdded.toggle()
+                }
+            }.toolbar {
+                Button {
+                    if locationAdded {
+                        positionView.center.latitude = latitud
+                        positionView.center.longitude = longitud
+                    }
+                } label: {
+                    Image(systemName: "car.front.waves.up")
+                }.disabled((locationAdded) ? false : true)
             }
-            
         }
         .padding()
         .onAppear {
