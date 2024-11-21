@@ -134,7 +134,7 @@ struct ContentView: View {
                     Image(systemName: "car.front.waves.up")
                 }.disabled((locationAdded) ? false : true)
             }
-            .navigationTitle("Parkin Spot")
+            .navigationTitle("Parking Spot")
             .navigationBarTitleDisplayMode(.inline)
         }
         .padding()
