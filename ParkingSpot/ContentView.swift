@@ -60,6 +60,10 @@ struct Location: Identifiable {
 }
 
 struct ContentView: View {
+    @State private var latitudSave = UserDefaults.standard.double(forKey: "latitudSave")
+    @State private var longitudSave = UserDefaults.standard.double(forKey: "longitudSave")
+    @State var locationAdded = UserDefaults.standard.bool(forKey: "Added")
+    
     @StateObject private var locationManager = LocationManager()
     @State var positionView = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
@@ -81,10 +85,6 @@ struct ContentView: View {
             )
         )
     ]
-    
-    @State var locationAdded = false
-    @State var latitud: CLLocationDegrees = 0
-    @State var longitud: CLLocationDegrees = 0
     
     var body: some View {
         NavigationView {
@@ -120,16 +120,20 @@ struct ContentView: View {
                             longitude: positionView.center.longitude
                         )
                     )
-                    latitud = positionView.center.latitude
-                    longitud = positionView.center.longitude
+                    latitudSave = positionView.center.latitude
+                    longitudSave = positionView.center.longitude
+                    
+                    UserDefaults.standard.set(latitudSave, forKey: "latitudSave")
+                    UserDefaults.standard.set(longitudSave, forKey: "longitudSave")
                     locationAdded.toggle()
+                    UserDefaults.standard.set(locationAdded, forKey: "Added")
                 }
             }.toolbar {
                 Button {
                     if locationAdded {
                         withAnimation {
-                            positionView.center.latitude = latitud
-                            positionView.center.longitude = longitud
+                            positionView.center.latitude = latitudSave
+                            positionView.center.longitude = longitudSave
                             positionView.span.latitudeDelta = 0.01
                             positionView.span.longitudeDelta = 0.01
                         }
@@ -157,6 +161,25 @@ struct ContentView: View {
                 )
                 
                 positionView = position
+            }
+            
+            if UserDefaults.standard.bool(forKey: "Added") == true {
+                location[0] = Location(
+                    name: "Car",
+                    location: CLLocationCoordinate2D(
+                        latitude: latitudSave,
+                        longitude: longitudSave
+                    )
+                )
+                
+                Map(
+                    coordinateRegion: $positionView,
+                    annotationItems: location
+                ) { location in
+                    MapAnnotation(coordinate: location.location) {
+                        Image(systemName: "car.fill")
+                    }
+                }
             }
         }
     }
