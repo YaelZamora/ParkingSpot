@@ -1,0 +1,38 @@
+{
+  "" : {
+    "diagnostics" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ParkingSpot-master.dia",
+    "emit-module-dependencies" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ParkingSpot-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ParkingSpot-master-emit-module.dia",
+    "swift-dependencies" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ParkingSpot-master.swiftdeps"
+  },
+  "/Users/yaelzamora/Documents/ParkingSpot/ParkingSpot/ContentView.swift" : {
+    "const-values" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/yaelzamora/Documents/ParkingSpot/ParkingSpot/ParkingSpotApp.swift" : {
+    "const-values" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ParkingSpotApp.swiftconstvalues",
+    "dependencies" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ParkingSpotApp.d",
+    "diagnostics" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ParkingSpotApp.dia",
+    "index-unit-output-path" : "/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ParkingSpotApp.o",
+    "llvm-bc" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ParkingSpotApp.bc",
+    "object" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ParkingSpotApp.o",
+    "swift-dependencies" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ParkingSpotApp.swiftdeps",
+    "swiftmodule" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/ParkingSpotApp~partial.swiftmodule"
+  },
+  "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/yaelzamora/Documents/ParkingSpot/build/ParkingSpot.build/Debug-iphonesimulator/ParkingSpot.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}
