@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXFileReference section */
@@ -11,11 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		7E216C142CEEA0CA0034DC02 /* ParkingSpot */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ParkingSpot;
-			sourceTree = "<group>";
-		};
+		7E216C142CEEA0CA0034DC02 /* ParkingSpot */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ParkingSpot; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +82,7 @@
 				};
 			};
 			buildConfigurationList = 7E216C0D2CEEA0CA0034DC02 /* Build configuration list for PBXProject "ParkingSpot" */;
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -94,7 +91,6 @@
 			);
 			mainGroup = 7E216C092CEEA0CA0034DC02;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 52;
 			productRefGroup = 7E216C132CEEA0CA0034DC02 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
